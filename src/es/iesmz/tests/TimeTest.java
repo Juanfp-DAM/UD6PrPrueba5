@@ -24,6 +24,16 @@ class TimeTest {
         assertEquals(new Time(12,59,45), nextT2);
     }
 
+    @org.junit.jupiter.api.Test
+    void nextSecond3(){
+        //ARRANGE
+        Time t3 = new Time(1,9,59);
+        //ACT
+        Time nextT3=t3.nextSecond();
+        //ASSERT
+        assertEquals(new Time(1,10,0), nextT3);
+    }
 
+    
 
 }
