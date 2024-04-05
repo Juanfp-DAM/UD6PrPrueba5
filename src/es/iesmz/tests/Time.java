@@ -6,7 +6,7 @@ public class Time {
     private int min;
     private int h;
 
-    public Time(int sec, int min, int h) {
+    public Time(int h, int min, int sec) {
         verificaSec(sec);
         verificaMin(min);
         verficaHora(h);
@@ -46,8 +46,16 @@ public class Time {
         }else{
             this.sec++;
         }
-        Time t= new Time(this.sec, this.min, this.h);
+        Time t= new Time(this.h, this.min, this.sec);
         return t;
+    }
+
+    @Override
+    //Es necesario sobreescribirlo porque assertEquals compara que la posición de memoria de los objetos Time es la misma o no
+    public boolean equals(Object timeDelTest) {
+        Time esTime = (Time) timeDelTest;
+        //Si los atributos coinciden, devolverá true
+        return this.h == esTime.h && this.min == esTime.min && this.sec == esTime.sec;
     }
 
 }
